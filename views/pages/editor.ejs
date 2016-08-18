@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+<script type="text/javascript">
+$(document).ready( function() {
+$("#txtEditor").Editor();
+//$("#title").Editor();
+document.getElementById('Editor-editor')
+ var x = document.getElementsByClassName("Editor-editor");
+ var elId = <%- JSON.stringify(id)%>;
+ var eltitle = <%- JSON.stringify(title)%>;
+ var eldata = <%- JSON.stringify(content)%>;
+ var contentVal= '<h1></span>'+elId+'</h1><h3></span>'+eltitle +'</h3><p>'+eldata+'</p>';
+ x[0].innerHTML = contentVal;
+
+ var titleInput = document.getElementById("title");
+titleInput.value = eltitle;
+ });
+</script>
+
+</head>
+<body class="container">
+  <header>
+    <% include ../partials/header %>
+  </header>
+<div class="container">
+  <div class="form-group">
+    <label for="title-input" class="col-xs-15 col-form-label">Title</label>
+    <input id="title" class="form-control input-lg" id="inputlg" type="text">
+  </div>
+  <div class="form-group">
+   <label for="content-input" class="col-xs-15 col-form-label">Content</label>
+   <div id="txtEditor"></div>
+ </div>
+  <div class="col-md-15 text-center">
+  <button id="saveButton" name="singlebutton" class="btn btn-primary">Save Changes</button>
+  </div>
+</div>
+<footer>
+    <% include ../partials/footer %>
+</footer>
+</body>
+</html>

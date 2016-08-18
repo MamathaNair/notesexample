@@ -4,7 +4,8 @@ var express = require('express');
 var app = express();
 var path = require('path');
 
-var getData = require('./src/readDataFromDB')
+var getData = require('./src/readSubjectFromDB')
+var chapterData = require('./src/readChapterFromDB')
 
 app.set('view engine', 'ejs');
 
@@ -15,31 +16,20 @@ app.get('/', function(req, res) {
     res.render('pages/index');
 });
 
-app.get('/saveData', function (req, res) {
-  functionToLoadDataFromDatabase(function(divData, userData) {
-    // this is the callback
-    res.render('index.html', {
-      layout: false,
-      divData: divData,
-      userData: userData
-    });
-  });
-});
-
 app.get('/subjectContent', function(req, res) {
   console.log('got subject request ');
-  console.log(req.query);
     if(req.query && req.query.name){
       res.render('pages/subjectContent', getData(req.query.name));
     }
 });
 
-app.get('/about', function(req, res) {
-    res.render('pages/about', getData());
-});
-// about page
-app.get('/editor', function(req, res) {
-    res.render('pages/editor', getData());
+app.get('/edit', function(req, res) {
+  console.log('got edit content');
+  console.log(req.query);
+    if(req.query && req.query.subjectId && req.query.chapterId){
+      var value = chapterData(req.query.subjectId,req.query.chapterId);
+      res.render('pages/editor', value);
+    }
 });
 
 var port = 1234;

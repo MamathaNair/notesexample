@@ -1,0 +1,38 @@
+
+<!-- views/partials/chapters.ejs -->
+<div class="col-sm-3 col-md-2 affix-sidebar">
+<div class="navbar navbar-default navbar-collapse collapse" role="navigation">
+  <ul class="nav navbar-nav" id="sidenav01">
+        <% for(var i=0;i< chapters.length; i++) {
+           var chapter = chapters[i];
+           var chapterId = 'chapter'+ i;
+           var contentId = chapterId +'content';          %>
+          <li>
+          <a id='<%= chapterId %>' href="#<%= contentId %>" data-toggle="collapse" data-target="<%= chapter.id %>" data-parent="#sidenav01" class="collapsed">
+          <span class="glyphicon glyphicon-file"></span> <%= chapter.id %><span class="caret pull-right"></span>
+        </a>
+      </li>
+    <% }; %>
+  </ul>
+  </div>
+</div>
+<div class="target">
+<% for(var i=0;i< chapters.length; i++) {
+   var chapter = chapters[i];
+   var contentId = 'chapter'+ i +'content';
+           %>
+   <div id='<%= contentId %>' class="col-md-10 col-md-10 affix-content">
+
+  <div class="chaptercontent-header">
+    <a href="/edit?subjectId=<%=subjectId%>&amp;chapterId=<%=chapter.id%>" type="button" class="btn btn-default navbar-btn pull-right">
+      <span class="glyphicon glyphicon-shopping-edit"></span>Edit
+    </a>
+  </div>
+     <div class="container-fluid"  class="col-md-10 col-md-10 affix-content">
+       <h1></span> <%= chapter.id %> </h1>
+        <h3></span> <%= chapter.title %> </h3>
+             <p><%= chapter.content %> </p>
+       </div>
+   </div>
+<% }; %>
+</div>
