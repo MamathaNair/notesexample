@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+<script type="text/javascript">
+$(document).ready( function() {
+$("#txtEditor").Editor();
+});
+
+document.getElementById("saveButton").onclick = function () {
+ location.href = "/saveData?data=";
+};
+</script>
+
+</head>
+<body class="container">
+  <header>
+    <% include ../partials/header %>
+  </header>
+<div class="container">
+  <div id="txtEditor"></div>
+  <div class="col-md-15 text-center">
+  <button id="saveButton" name="singlebutton" class="btn btn-primary">Save Changes</button>
+  </div></div>
+<footer>
+    <% include ../partials/footer %>
+</footer>
+</body>
+</html>

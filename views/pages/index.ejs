@@ -1,0 +1,31 @@
+<!-- views/pages/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+    <header>
+        <% include ../partials/header %>
+    </header>
+    <main>
+    <div class="list-group">
+      <a href="/subjectContent?name=genre1" class="list-group-item list-group-item-action">
+        <h5 class="list-group-item-heading">Genre 1</h5>
+        <p class="list-group-item-text">Your guide to whats on adn when in Rio Olympics.</p>
+      </a>
+      <a href="/subjectContent?name=genre2" class="list-group-item list-group-item-action">
+        <h5 class="list-group-item-heading">Genre 2</h5>
+        <p class="list-group-item-text">Frequently asked questions on Genre 2 of articles.</p>
+      </a>
+      <a href="/subjectContent?name=genre3" class="list-group-item list-group-item-action">
+        <h5 class="list-group-item-heading">Genre 3</h5>
+        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+      </a>
+</div>
+    </main>
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+</body>
+</html>
